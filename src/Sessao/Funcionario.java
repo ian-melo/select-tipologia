@@ -12,6 +12,23 @@ public class Funcionario {
     private String senha;
     private Date dataHoraAcesso;
     private Date dataHoraSaida;
+    private Sessao sessao;//composição
+
+    /**
+     *
+     * @return
+     */
+    public Sessao getSessao() {
+        return sessao;
+    }
+
+    /**
+     *
+     * @param sessao
+     */
+    public void setSessao(Sessao sessao) {
+        this.sessao = sessao;
+    }
 
     /**
      *

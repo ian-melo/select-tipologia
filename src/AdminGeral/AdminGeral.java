@@ -1,7 +1,6 @@
 package AdminGeral;
 
-import st.tipologia.Tipologia;
-
+import tipologia.Tipologia;
 
 /**
  *

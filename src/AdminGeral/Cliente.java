@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package AdminGeral;
 
 /**
@@ -10,6 +5,7 @@ package AdminGeral;
  * @author Fábio
  */
 public class Cliente {
+
     private String nome;
     private String endereco;
     private String telefone;
@@ -37,5 +33,5 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
+
 }

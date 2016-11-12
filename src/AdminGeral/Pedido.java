@@ -1,46 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package AdminGeral;
 
 import java.util.Date;
-import st.tipologia.Tipologia;
-
+import tipologia.Tipologia;
 
 /**
  *
  * @author Fábio
  */
 public class Pedido {
+
     private Date data;
+    private Tipologia tipologia;//vem da agregação
+    private Cliente cliente;//vem da composição
 
     /**
      *
      * @return retorna a tipologia atual
      */
-    public Tipologia obterTipologia(){
-      
+    public Tipologia obterTipologia() {
+
         return null;
     }
-    
+
     /**
      *
      * @return retorna o cliente atual
      */
-    public Cliente obterCliente(){
+    public Cliente obterCliente() {
         return null;
     }
-    
+
     /**
      *
      * @return retorna uma lista com todos os pedidos
      */
-    public Pedido[] ListarPedidos(){
+    public Pedido[] ListarPedidos() {
         return null;
     }
-    
+
     /**
      *
      * @return

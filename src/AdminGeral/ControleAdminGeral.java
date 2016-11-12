@@ -1,7 +1,6 @@
 package AdminGeral;
 
-import st.tipologia.Tipologia;
-
+import tipologia.Tipologia;
 
 /**
  *
@@ -12,7 +11,7 @@ public class ControleAdminGeral {
     /**
      *
      * @param altuta altura da tipologia
-     * @param largura largura  da tipologia
+     * @param largura largura da tipologia
      * @param fFogo escala de nivel de resistencia
      * @param fSom escala de nivel de resistencia
      * @param fUmi escala de nivel de resistencia
