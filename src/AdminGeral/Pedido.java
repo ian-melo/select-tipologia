@@ -1,7 +1,8 @@
 package AdminGeral;
 
+import java.util.ArrayList;
 import java.util.Date;
-import tipologia.Tipologia;
+import st.tipologia.Tipologia;
 
 /**
  *
@@ -34,7 +35,7 @@ public class Pedido {
      *
      * @return retorna uma lista com todos os pedidos
      */
-    public Pedido[] ListarPedidos() {
+    public ArrayList<Pedido> ListarPedidos() {
         return null;
     }
 

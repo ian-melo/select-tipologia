@@ -1,6 +1,7 @@
 package AdminGeral;
 
-import tipologia.Tipologia;
+import java.util.ArrayList;
+import st.tipologia.Tipologia;
 
 /**
  *
@@ -22,9 +23,9 @@ public class AdminGeral {
      *
      * @return retorna um Array com todos os pedidos
      */
-    public Object[] gerarRelatorioConsumidor() {
+    public ArrayList<Object> gerarRelatorioConsumidor() {
 
-        Object ob[] = null;
-        return ob;
+      
+        return null;
     }
 }
