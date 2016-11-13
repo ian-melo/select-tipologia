@@ -1,5 +1,9 @@
 package Sessao;
 
+//import java.text.SimpleDateFormat;
+import java.util.Date;
+//import javax.swing.JOptionPane;
+
 /**
  *
  * @author Fábio
@@ -15,6 +19,7 @@ public class Sessao {
     public static void setFuncionario(Funcionario funcionario) {
         Sessao.funcionario = funcionario;
     }
+
     /**
      *
      * @param f entrar com o nomeLogin e senha do usuario/funcionario
@@ -23,8 +28,15 @@ public class Sessao {
         String senha = f.getSenha();
         String login = f.getNomeLogin();
 
-        if("adm".equals(login) && "123".equals(senha)){
+        if ("adm".equals(login) && "123".equals(senha)) {
+            //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            f.setDataHoraAcesso(new Date(System.currentTimeMillis()));//Pega a hora do sistema q iniciou
+
             Sessao.setFuncionario(f);
+            //JOptionPane.showMessageDialog(null, sdf.format(new Date(System.currentTimeMillis())));
+            //JOptionPane.showMessageDialog(null, new Date(System.currentTimeMillis()));
+
         }
     }
 
@@ -32,14 +44,15 @@ public class Sessao {
      * função que efetuará o deslogue
      */
     public static void deslogar() {
-
+        funcionario.setDataHoraSaida(new Date(System.currentTimeMillis()));
+        //Salvar no BD
+        Sessao.funcionario = null;//'encerrando sessao'
     }
 
     /**
      * Função qu ira autenticar o funcionario/usuario
      */
     public static void autenticar() {
-        
 
     }
 }

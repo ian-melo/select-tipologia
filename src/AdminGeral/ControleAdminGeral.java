@@ -27,6 +27,8 @@ public class ControleAdminGeral {
      * @param t recebe a tipologia criada
      */
     public void criarPedido(Cliente c, Tipologia t) {
+        Pedido p = new Pedido();
+        
 
     }
 }

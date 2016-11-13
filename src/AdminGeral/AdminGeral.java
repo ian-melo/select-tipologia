@@ -16,6 +16,11 @@ public class AdminGeral {
      * @return retorna se o bedido foi gerado com sucesso
      */
     public boolean gerarPedido(Cliente cli, Tipologia t) {
+        Pedido p = new Pedido();
+        
+        p.obterTipologia();
+        
+        
         return false;
     }
 
