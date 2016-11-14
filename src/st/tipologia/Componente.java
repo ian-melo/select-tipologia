@@ -2,7 +2,9 @@
 //TODO: função listarComponentes
 package st.tipologia;
 
+import java.sql.*;
 import java.util.List;
+import st.persistencia.BancoDados;
 
 /**
  * Classe de Componente, que representa um material usado na fabricação
@@ -155,7 +157,12 @@ public class Componente {
      * Retorna uma lista com todos os componentes armazenados na base de dados
      * @return Lista de componentes
      */
-    public static List listarComponentes() {
+    public static List<Componente> listarComponentes() {
+        BancoDados con = new BancoDados();
+        ResultSet rs;
+        PreparedStatement pst;
+        String sql;
+        
         
         return null;
     }

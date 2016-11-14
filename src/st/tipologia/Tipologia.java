@@ -4,6 +4,7 @@ package st.tipologia;
 
 import java.util.ArrayList;
 import java.util.List;
+import st.persistencia.BancoDados;
 
 /**
  * Classe de Tipologia, que descreve o conjunto total de componentes
@@ -77,7 +78,7 @@ public class Tipologia {
      * Retorna a lista de componentes da tipologia
      * @return Lista de componentes da tipologia
      */
-    public ArrayList<Tipologia> getListaComponentes() {
+    public List<Tipologia> getListaComponentes() {
         return listaComponentes;
     }
     /**
@@ -93,7 +94,8 @@ public class Tipologia {
      * Retorna uma lista com todas as tipologias armazenados na base de dados
      * @return Lista de tipologias
      */
-    public static List listarTipologias() {
+    public static List<Tipologia> listarTipologias() {
+        BancoDados con;
         
         return null;
     }
