@@ -10,6 +10,7 @@ import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Vector;
+import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,6 +37,7 @@ public class FormPedido extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_pedido = new javax.swing.JTable();
+        btn_atualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -54,21 +56,34 @@ public class FormPedido extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tb_pedido);
 
+        btn_atualizar.setText("Atualizar");
+        btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_atualizar)
+                        .addGap(0, 761, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(btn_atualizar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -77,6 +92,10 @@ public class FormPedido extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         preencherTabela();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
+        preencherTabela();
+    }//GEN-LAST:event_btn_atualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,20 +131,26 @@ public class FormPedido extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
+
     public void preencherTabela() {
-        NumberFormat formato_grana = new DecimalFormat ("#,##0.00", new DecimalFormatSymbols (new Locale ("pt", "BR")));
-        
+        NumberFormat formato_grana = new DecimalFormat("#,##0.00", new DecimalFormatSymbols(new Locale("pt", "BR")));
+
         //Cabeçalho
         Vector cabecalho = new Vector();
-        cabecalho.add("Tipologia");
-        cabecalho.add("Ambiente");
-        cabecalho.add("Cliente");
-        cabecalho.add("Funcionario");
+        cabecalho.add("Altura");//0
+        cabecalho.add("Largura");//1
+        cabecalho.add("Preço");//2
+        cabecalho.add("Fogo");//3
+        cabecalho.add("Som");//4
+        cabecalho.add("Umidade");//5
+        cabecalho.add("Mecanico");//6
+
+        cabecalho.add("Nome do Cliente");//7
+        cabecalho.add("Endereço");//8
+        cabecalho.add("Telefone");//9
+        cabecalho.add("Data");//10
         //Fim
-        
+
         Vector dados = new Vector();
         Vector item;
         float subtotal = 0f;
@@ -139,23 +164,33 @@ public class FormPedido extends javax.swing.JFrame {
 //            subtotal += ix.getSubtotal(); //Soma subtotal para exibir
 //            dados.add(item);
 //        }
-        
         DefaultTableModel modeloTabela = new DefaultTableModel();
         modeloTabela.setDataVector(dados, cabecalho);
-        tb_pedido.setModel(modeloTabela);
 
-        //muda tamanho das colunas
-        tb_pedido.getColumnModel().getColumn(0).setMaxWidth(290);
-        tb_pedido.getColumnModel().getColumn(1).setMaxWidth(90);
-        tb_pedido.getColumnModel().getColumn(2).setMaxWidth(90);
-        tb_pedido.getColumnModel().getColumn(3).setMaxWidth(90);
         
-   
+        
+        tb_pedido.setModel(modeloTabela);
+        //muda tamanho das colunas
+        tb_pedido.getColumnModel().getColumn(0).setMaxWidth(50);
+        tb_pedido.getColumnModel().getColumn(1).setMaxWidth(60);
+        tb_pedido.getColumnModel().getColumn(2).setMaxWidth(50);
+        tb_pedido.getColumnModel().getColumn(3).setMaxWidth(50);
+        tb_pedido.getColumnModel().getColumn(4).setMaxWidth(50);
+        tb_pedido.getColumnModel().getColumn(5).setMaxWidth(70);
+        tb_pedido.getColumnModel().getColumn(6).setMaxWidth(70);
+        tb_pedido.getColumnModel().getColumn(7).setMaxWidth(160);
+        tb_pedido.getColumnModel().getColumn(8).setMaxWidth(120);
+        tb_pedido.getColumnModel().getColumn(9).setMaxWidth(90);
+        tb_pedido.getColumnModel().getColumn(10).setMaxWidth(60);
+        
+
+        //tb_pedido.getColumnModel().getColumn(0).setMinWidth(40);
+        
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_atualizar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tb_pedido;
     // End of variables declaration//GEN-END:variables

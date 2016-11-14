@@ -13,8 +13,9 @@ public class TesteConexao {
         bd.abrirConexao();
         bd.fecharConexao();
         
-        bd = new BancoDados("livraria","root","root");
+        bd = new BancoDados("tipologia","root","");
         bd.abrirConexao();
+        
         bd.fecharConexao();
     }
 }

@@ -28,7 +28,7 @@ public class BancoDados {
     /**
      * Senha do banco de dados
      */
-    private String senha = "root";
+    private String senha = "";
     
     /*CONSTRUTORES*/
     /**
