@@ -1,12 +1,18 @@
+//TODO: Testar
+//TODO: função listarComponentes
 package st.tipologia;
 
+import java.util.List;
+
 /**
- *
+ * Classe de Componente, que representa um material usado na fabricação
+ * do produto final do drywall
  * @author SCS214
  */
 public class Componente {
+    /*ENUMS*/
     /**
-     * Tipos de componente que compõe uma tipologia
+     * Tipo de componente que um componente está sujeito a ser
      */
     public enum Tipo {
         /** Chapa da tipologia */ CHAPA,
@@ -14,6 +20,7 @@ public class Componente {
         /** Forro da tipologia */ FORRO
     }
     
+    /*ATRIBUTOS*/
     /**
      * Nome do componente
      */
@@ -31,13 +38,17 @@ public class Componente {
      */
     private float massa;
     /**
+     * Preço do componente, em R$
+     */
+    private float preco;
+    /**
      * Tipo do componente
      */
     private Tipo tipo;
     /**
-     * Preço do componente, em R$
+     * Ambiente do componente
      */
-    private float preco;
+    private Ambiente ambiente;
     
     /*GETTERS SETTERS*/
     /**
@@ -97,6 +108,20 @@ public class Componente {
         this.massa = massa;
     }
     /**
+     * Retorna o preço do componente, em R$
+     * @return Preço do componente
+     */
+    public float getPreco() {
+        return preco;
+    }
+    /**
+     * Define o preço do componente, em R$
+     * @param preco Preço do componente
+     */
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+    /**
      * Retorna o tipo do componente
      * @return Tipo do componente
      */
@@ -111,17 +136,27 @@ public class Componente {
         this.tipo = tipo;
     }
     /**
-     * Retorna o preço do componente, em R$
-     * @return Preço do componente
+     * Retorna o ambiente do componente
+     * @return Ambiente do componente
      */
-    public float getPreco() {
-        return preco;
+    public Ambiente getAmbiente() {
+        return ambiente;
     }
     /**
-     * Define o preço do componente, em R$
-     * @param preco Preço do componente
+     * Define o ambinte do componente
+     * @param ambiente do componente
      */
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setAmbiente(Ambiente ambiente) {
+        this.ambiente = ambiente;
+    }
+    
+    /*ESTATICOS*/
+    /**
+     * Retorna uma lista com todos os componentes armazenados na base de dados
+     * @return Lista de componentes
+     */
+    public static List listarComponentes() {
+        
+        return null;
     }
 }
