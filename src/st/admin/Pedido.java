@@ -1,4 +1,4 @@
-package AdminGeral;
+package st.admin;
 
 import java.util.ArrayList;
 import java.util.Date;

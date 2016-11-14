@@ -1,4 +1,4 @@
-package AdminGeral;
+package st.admin;
 
 /**
  *
