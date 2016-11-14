@@ -5,6 +5,13 @@
  */
 package AdminGeral;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Usuario
@@ -27,21 +34,49 @@ public class FormPedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tb_pedido = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
+
+        tb_pedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tb_pedido);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        preencherTabela();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -77,7 +112,51 @@ public class FormPedido extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
+    public void preencherTabela() {
+        NumberFormat formato_grana = new DecimalFormat ("#,##0.00", new DecimalFormatSymbols (new Locale ("pt", "BR")));
+        
+        //Cabeçalho
+        Vector cabecalho = new Vector();
+        cabecalho.add("Tipologia");
+        cabecalho.add("Ambiente");
+        cabecalho.add("Cliente");
+        cabecalho.add("Funcionario");
+        //Fim
+        
+        Vector dados = new Vector();
+        Vector item;
+        float subtotal = 0f;
+
+//        for (ItemPedido ix : Carrinho.getItens()) {
+//            item = new Vector();
+//            item.add(ix.getLivro().getTitulo());
+//            item.add(formato_grana.format(ix.getSubtotal()/ix.getQuantidade())); //Divide subtotal por quantidade
+//            item.add(ix.getQuantidade());
+//            item.add(formato_grana.format(ix.getSubtotal()));
+//            subtotal += ix.getSubtotal(); //Soma subtotal para exibir
+//            dados.add(item);
+//        }
+        
+        DefaultTableModel modeloTabela = new DefaultTableModel();
+        modeloTabela.setDataVector(dados, cabecalho);
+        tb_pedido.setModel(modeloTabela);
+
+        //muda tamanho das colunas
+        tb_pedido.getColumnModel().getColumn(0).setMaxWidth(290);
+        tb_pedido.getColumnModel().getColumn(1).setMaxWidth(90);
+        tb_pedido.getColumnModel().getColumn(2).setMaxWidth(90);
+        tb_pedido.getColumnModel().getColumn(3).setMaxWidth(90);
+        
+   
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tb_pedido;
     // End of variables declaration//GEN-END:variables
 }

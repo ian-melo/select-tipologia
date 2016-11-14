@@ -2,6 +2,7 @@ package AdminGeral;
 
 import st.tipologia.Tipologia;
 
+
 /**
  *
  * @author Fábio

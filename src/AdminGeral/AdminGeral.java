@@ -3,6 +3,7 @@ package AdminGeral;
 import java.util.ArrayList;
 import st.tipologia.Tipologia;
 
+
 /**
  *
  * @author Fábio
@@ -17,7 +18,6 @@ public class AdminGeral {
      */
     public boolean gerarPedido(Cliente cli, Tipologia t) {
         Pedido p = new Pedido();
-        
         p.obterTipologia();
         
         
