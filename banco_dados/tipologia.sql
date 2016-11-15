@@ -15,9 +15,9 @@ CREATE TABLE Funcionario (
 CREATE TABLE Componente(
 	CodComponente INT(11) AUTO_INCREMENT,
 	Nome VARCHAR(30),
-	Altura DECIMAL(10,5),
-	Largura DECIMAL(10,5),
-	Massa DECIMAL(10,5),
+	Altura DECIMAL(12,5),
+	Largura DECIMAL(12,5),
+	Massa DECIMAL(12,5),
 	Preco DECIMAL(10,2),
 	Tipo VARCHAR(10),
 	FatorFogo INT(3) DEFAULT 0,
@@ -31,8 +31,8 @@ CREATE TABLE Componente(
 
 CREATE TABLE Tipologia(
 	CodTipologia INT(11) AUTO_INCREMENT,
-	Altura DECIMAL(10,5),
-	Largura DECIMAL(10,5),
+	Altura DECIMAL(12,5),
+	Largura DECIMAL(12,5),
 	Preco DECIMAL(10,2),
 	FatorFogo INT(3) DEFAULT 0,
 	FatorSom INT(3) DEFAULT 0,
@@ -67,6 +67,17 @@ CREATE TABLE Pedido( /*Dep. Tipologia*/
 /*CHAVE ESTRANGEIRA*/
 	FOREIGN KEY(CodTipologia) REFERENCES Tipologia(CodTipologia)
 );
+
+CREATE VIEW Tudo_Tipologia AS
+SELECT 
+tc.CodTipologia, tc.CodComponente, t.Altura AS TipAltura, t.Largura AS TipLargura, t.Preco AS TipPreco, t.FatorFogo AS TipFatorFogo, t.FatorSom AS TipFatorSom,
+t.FatorUmidade AS TipFatorUmidade, t.FatorMecanico AS TipFatorMecanico, 
+c.Nome, c.Altura, c.Largura, c.Massa, c.Preco, c.Tipo, c.FatorFogo, c.FatorSom, 
+c.FatorUmidade, c.FatorMecanico
+FROM TipologiaComponente tc 
+INNER JOIN Tipologia t ON tc.CodTipologia = t.CodTipologia 
+INNER JOIN Componente c ON tc.CodComponente = c.CodComponente 
+WHERE t.XDEAD = FALSE;
 
 /*INSERIR FUNCIONÁRIO*/
 INSERT INTO Funcionario
