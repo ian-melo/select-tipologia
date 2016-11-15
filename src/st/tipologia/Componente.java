@@ -196,9 +196,9 @@ public class Componente {
             //Fecha conexão
             bd.fecharConexao();
         } catch(SQLException ex) {
-            System.out.println("Erro em execução: " + ex.getMessage());
+            return null;
         } catch(ConexaoException ex) {
-            System.out.println("Erro na conexão: " + ex.getMessage());
+            return null;
         }
         return lc;
     }
