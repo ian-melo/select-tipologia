@@ -28,7 +28,7 @@ public class BancoDados {
     /**
      * Senha do banco de dados
      */
-    private String senha = "";
+    private String senha = "root";
     
     /*CONSTRUTORES*/
     /**
@@ -63,7 +63,7 @@ public class BancoDados {
             conexao = DriverManager.getConnection(caminho, usuario, senha);
         } catch (ClassNotFoundException | SQLException ex) {
             //Joga exceção caso não tenha conseguido se conectar
-            throw new ConexaoException("Não foi possível conectar ao banco de dados.");
+            throw new ConexaoException("Não foi possível conectar ao banco de dados." + ex.getMessage());
         }
         //Retorna a conexão, caso tenha sido sucesso
         return conexao;

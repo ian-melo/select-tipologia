@@ -3,8 +3,10 @@
 package st.tipologia;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import st.persistencia.BancoDados;
+import st.persistencia.ConexaoException;
 
 /**
  * Classe de Componente, que representa um material usado na fabricação
@@ -158,12 +160,48 @@ public class Componente {
      * @return Lista de componentes
      */
     public static List<Componente> listarComponentes() {
-        BancoDados con = new BancoDados();
+        BancoDados bd = new BancoDados();
+        PreparedStatement ps;
         ResultSet rs;
-        PreparedStatement pst;
         String sql;
+        Ambiente a = null;
+        Componente c = null;
+        ArrayList<Componente> lc = new ArrayList<>();
+        int codTip = 0;
         
-        
-        return null;
+        try {
+            //Define String
+            sql = "SELECT * FROM Componente WHERE XDEAD = FALSE";
+            //Prepara gatilho
+            ps = bd.abrirConexao().prepareStatement(sql);
+            //Executa e puxa a busca
+            rs = ps.executeQuery();
+            //Verifica se houve resultados e atribui valores ao objeto
+            while(rs.next()){
+                //Configura novo componente da tipologia
+                c = new Componente();
+                c.setNome(rs.getString("Nome"));
+                c.setAltura(rs.getFloat("Altura"));
+                c.setLargura(rs.getFloat("Largura"));
+                c.setMassa(rs.getFloat("Massa"));
+                c.setPreco(rs.getFloat("Preco"));
+                c.setTipo(Tipo.valueOf(rs.getString("Tipo")));
+                a = new Ambiente();
+                a.setFatorFogo(rs.getInt("FatorFogo"));
+                a.setFatorSom(rs.getInt("FatorSom"));
+                a.setFatorUmidade(rs.getInt("FatorUmidade"));
+                a.setFatorMecanico(rs.getInt("FatorMecanico"));
+                c.setAmbiente(a);
+                //Adiciona componente à lista
+                lc.add(c);
+            }
+            //Fecha conexão
+            bd.fecharConexao();
+        } catch(SQLException ex) {
+            System.out.println("Erro em execução: " + ex.getMessage());
+        } catch(ConexaoException ex) {
+            System.out.println("Erro na conexão: " + ex.getMessage());
+        }
+        return lc;
     }
 }

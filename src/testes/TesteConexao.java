@@ -13,7 +13,7 @@ public class TesteConexao {
         bd.abrirConexao();
         bd.fecharConexao();
         
-        bd = new BancoDados("tipologia","root","");
+        bd = new BancoDados("tipologia","root","root");
         bd.abrirConexao();
         
         bd.fecharConexao();
