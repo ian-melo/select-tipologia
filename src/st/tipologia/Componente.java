@@ -1,5 +1,3 @@
-//TODO: Testar
-//TODO: função listarComponentes
 package st.tipologia;
 
 import java.sql.*;
