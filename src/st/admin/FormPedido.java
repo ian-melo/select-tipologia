@@ -5,12 +5,7 @@
  */
 package st.admin;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Vector;
-import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -38,6 +33,8 @@ public class FormPedido extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_pedido = new javax.swing.JTable();
         btn_atualizar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btn_fechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -63,6 +60,10 @@ public class FormPedido extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Pedidos");
+
+        btn_fechar.setText("Fechar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,20 +71,28 @@ public class FormPedido extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_atualizar)
-                        .addGap(0, 761, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_fechar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_atualizar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_atualizar)
+                    .addComponent(btn_fechar))
+                .addContainerGap())
         );
 
         pack();
@@ -133,8 +142,7 @@ public class FormPedido extends javax.swing.JFrame {
     }
 
     public void preencherTabela() {
-        NumberFormat formato_grana = new DecimalFormat("#,##0.00", new DecimalFormatSymbols(new Locale("pt", "BR")));
-
+        this.setTitle("Pedido");//melhorar
         //Cabeçalho
         Vector cabecalho = new Vector();
         cabecalho.add("Altura");//0
@@ -152,45 +160,64 @@ public class FormPedido extends javax.swing.JFrame {
         //Fim
 
         Vector dados = new Vector();
-        Vector item;
-        float subtotal = 0f;
+        Vector item = new Vector();
 
-//        for (ItemPedido ix : Carrinho.getItens()) {
-//            item = new Vector();
-//            item.add(ix.getLivro().getTitulo());
-//            item.add(formato_grana.format(ix.getSubtotal()/ix.getQuantidade())); //Divide subtotal por quantidade
-//            item.add(ix.getQuantidade());
-//            item.add(formato_grana.format(ix.getSubtotal()));
-//            subtotal += ix.getSubtotal(); //Soma subtotal para exibir
-//            dados.add(item);
-//        }
+        //apagar apartir desta linha
+        //apenas para teste e manual do usuario
+        item.add("1,5");//temporario todos
+        item.add("1,5");//temporario
+        item.add("R$ 10,5");//temporario
+        item.add("1");//temporario
+        item.add("5");
+        item.add("1");
+        item.add("1");//
+        item.add("Fernando J.");
+        item.add("Rua 3");
+        item.add("(11)9-1234-5678");
+        item.add("10/11/2016");//temporario
+        dados.add(item);
+
+        item = new Vector();
+        //apenas para teste e manual do usuario
+        item.add("1,75");//temporario todos
+        item.add("1,20");//temporario
+        item.add("R$ 7,5");//temporario
+        item.add("2");//temporario
+        item.add("6");
+        item.add("1");
+        item.add("1");//
+        item.add("Leticia Silva");
+        item.add("Rua Vinte");
+        item.add("(11)9-9876-5432");
+        item.add("11/11/2016");//temporario
+        dados.add(item);
+        //apagar até aqui
+
         DefaultTableModel modeloTabela = new DefaultTableModel();
         modeloTabela.setDataVector(dados, cabecalho);
 
-        
-        
         tb_pedido.setModel(modeloTabela);
         //muda tamanho das colunas
         tb_pedido.getColumnModel().getColumn(0).setMaxWidth(50);
         tb_pedido.getColumnModel().getColumn(1).setMaxWidth(60);
-        tb_pedido.getColumnModel().getColumn(2).setMaxWidth(50);
+        tb_pedido.getColumnModel().getColumn(2).setMaxWidth(70);
         tb_pedido.getColumnModel().getColumn(3).setMaxWidth(50);
         tb_pedido.getColumnModel().getColumn(4).setMaxWidth(50);
         tb_pedido.getColumnModel().getColumn(5).setMaxWidth(70);
         tb_pedido.getColumnModel().getColumn(6).setMaxWidth(70);
-        tb_pedido.getColumnModel().getColumn(7).setMaxWidth(160);
+        tb_pedido.getColumnModel().getColumn(7).setMaxWidth(140);
         tb_pedido.getColumnModel().getColumn(8).setMaxWidth(120);
-        tb_pedido.getColumnModel().getColumn(9).setMaxWidth(90);
-        tb_pedido.getColumnModel().getColumn(10).setMaxWidth(60);
-        
+        tb_pedido.getColumnModel().getColumn(9).setMaxWidth(100);
+        tb_pedido.getColumnModel().getColumn(10).setMaxWidth(80);
 
         //tb_pedido.getColumnModel().getColumn(0).setMinWidth(40);
-        
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atualizar;
+    private javax.swing.JButton btn_fechar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tb_pedido;
     // End of variables declaration//GEN-END:variables

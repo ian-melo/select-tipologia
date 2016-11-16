@@ -37,10 +37,15 @@ public class LoginP extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +88,8 @@ public class LoginP extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3)
-                            .addComponent(txtLogin)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))))
+                            .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(txtSenha))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -111,7 +116,7 @@ public class LoginP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if("".equals(txtLogin.getText()) || "".equals(txtSenha.getText())){
+        if ("".equals(txtLogin.getText()) || "".equals(txtSenha.getText())) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.");
             return;
         }
@@ -121,11 +126,11 @@ public class LoginP extends javax.swing.JFrame {
         fun.setNomeLogin(txtLogin.getText());
         fun.setSenha(txtSenha.getText());
         Sessao.logar(fun);
-        if(Sessao.getFuncionario() != null){
+        if (Sessao.getFuncionario() != null) {
             FormPedido fPedido = new FormPedido();
             fPedido.show();
             this.hide();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Login ou Senha incorretos");
         }
         
@@ -135,6 +140,10 @@ public class LoginP extends javax.swing.JFrame {
         //this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Fecha apenas a janela
         //this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.setTitle("Login");
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -181,6 +190,6 @@ public class LoginP extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtLogin;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
