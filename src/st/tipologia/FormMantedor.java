@@ -16,6 +16,11 @@ public class FormMantedor extends javax.swing.JFrame {
      */
     public FormMantedor() {
         initComponents();
+        preencherCComponente();
+        preencherTComponente();
+        preencherTTipologia();
+        
+        itemComponenteMouseClicked(null);
     }
 
     /**
@@ -27,22 +32,533 @@ public class FormMantedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        painelComponente = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtCNome = new javax.swing.JTextField();
+        txtCAltura = new javax.swing.JTextField();
+        txtCLargura = new javax.swing.JTextField();
+        txtCMassa = new javax.swing.JTextField();
+        txtCPreco = new javax.swing.JTextField();
+        btnCAdicionar = new javax.swing.JButton();
+        btnCExcluir = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCComponente = new javax.swing.JTable();
+        cmbCTipo = new javax.swing.JComboBox();
+        jLabel12 = new javax.swing.JLabel();
+        spiCFogo = new javax.swing.JSpinner();
+        jLabel13 = new javax.swing.JLabel();
+        spiCSom = new javax.swing.JSpinner();
+        jLabel14 = new javax.swing.JLabel();
+        spiCMeca = new javax.swing.JSpinner();
+        jLabel15 = new javax.swing.JLabel();
+        spiCUmi = new javax.swing.JSpinner();
+        jLabel16 = new javax.swing.JLabel();
+        painelTipologia = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txtTAltura = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtTLargura = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtTPreco = new javax.swing.JTextField();
+        btnTAdicionar = new javax.swing.JButton();
+        btnTExcluir = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblTTipologia = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblTComponente = new javax.swing.JTable();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
+        spiCSom1 = new javax.swing.JSpinner();
+        jLabel17 = new javax.swing.JLabel();
+        spiCMeca1 = new javax.swing.JSpinner();
+        jLabel18 = new javax.swing.JLabel();
+        spiCUmi1 = new javax.swing.JSpinner();
+        jLabel19 = new javax.swing.JLabel();
+        spiCFogo1 = new javax.swing.JSpinner();
+        jLabel20 = new javax.swing.JLabel();
+        menuMantedor = new javax.swing.JMenuBar();
+        itemComponente = new javax.swing.JMenu();
+        itemTipologia = new javax.swing.JMenu();
+
+        setTitle("Registro de Materiais");
+
+        jLabel1.setText("Nome descritivo:");
+
+        jLabel2.setText("Altura (cm):");
+
+        jLabel3.setText("Largura (cm):");
+
+        jLabel4.setText("Massa (g):");
+
+        jLabel5.setText("Preço (R$):");
+
+        btnCAdicionar.setText("Adicionar");
+
+        btnCExcluir.setText("Excluir");
+
+        jLabel9.setText("Selecione um componente:");
+
+        tblCComponente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblCComponente);
+
+        cmbCTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chapa", "Forro", "Parafuso" }));
+
+        jLabel12.setText("Tipo:");
+
+        jLabel13.setText("Fator fogo:");
+
+        jLabel14.setText("Fator som:");
+
+        jLabel15.setText("Fator umidade:");
+
+        jLabel16.setText("Fator mecânico:");
+
+        javax.swing.GroupLayout painelComponenteLayout = new javax.swing.GroupLayout(painelComponente);
+        painelComponente.setLayout(painelComponenteLayout);
+        painelComponenteLayout.setHorizontalGroup(
+            painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelComponenteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelComponenteLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(painelComponenteLayout.createSequentialGroup()
+                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(painelComponenteLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCNome, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(painelComponenteLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(painelComponenteLayout.createSequentialGroup()
+                                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel12))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(painelComponenteLayout.createSequentialGroup()
+                                                .addComponent(cmbCTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(36, 36, 36)
+                                                .addComponent(jLabel13))
+                                            .addGroup(painelComponenteLayout.createSequentialGroup()
+                                                .addComponent(txtCAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(98, 98, 98))
+                                            .addComponent(jLabel3)
+                                            .addGroup(painelComponenteLayout.createSequentialGroup()
+                                                .addComponent(txtCMassa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(36, 36, 36)
+                                                .addComponent(jLabel5))))
+                                    .addComponent(jLabel15))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtCLargura)
+                                        .addComponent(txtCPreco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(painelComponenteLayout.createSequentialGroup()
+                                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(spiCFogo, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                                            .addComponent(spiCUmi))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(painelComponenteLayout.createSequentialGroup()
+                                                .addGap(29, 29, 29)
+                                                .addComponent(jLabel14)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(spiCSom))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelComponenteLayout.createSequentialGroup()
+                                                .addComponent(jLabel16)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(spiCMeca, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                        .addGap(23, 23, 23)
+                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35))
+                    .addGroup(painelComponenteLayout.createSequentialGroup()
+                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())))
+        );
+        painelComponenteLayout.setVerticalGroup(
+            painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelComponenteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCAdicionar))
+                .addGap(18, 18, 18)
+                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(btnCExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCMassa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtCPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelComponenteLayout.createSequentialGroup()
+                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbCTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(spiCFogo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spiCUmi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)))
+                    .addGroup(painelComponenteLayout.createSequentialGroup()
+                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(spiCSom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spiCMeca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))))
+                .addGap(14, 14, 14)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel6.setText("Altura (cm):");
+
+        jLabel7.setText("Largura (cm):");
+
+        jLabel8.setText("Preço (R$):");
+
+        btnTAdicionar.setText("Adicionar");
+
+        btnTExcluir.setText("Excluir");
+
+        tblTTipologia.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblTTipologia);
+
+        jLabel10.setText("Selecione os componentes para adicionar à tipologia:");
+
+        tblTComponente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tblTComponente);
+
+        jLabel11.setText("Selecione a tipologia:");
+
+        jLabel17.setText("Fator som:");
+
+        jLabel18.setText("Fator umidade:");
+
+        jLabel19.setText("Fator mecânico:");
+
+        jLabel20.setText("Fator fogo:");
+
+        javax.swing.GroupLayout painelTipologiaLayout = new javax.swing.GroupLayout(painelTipologia);
+        painelTipologia.setLayout(painelTipologiaLayout);
+        painelTipologiaLayout.setHorizontalGroup(
+            painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelTipologiaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelTipologiaLayout.createSequentialGroup()
+                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelTipologiaLayout.createSequentialGroup()
+                                .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(painelTipologiaLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel8))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtTAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtTPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtTLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(painelTipologiaLayout.createSequentialGroup()
+                                        .addGap(288, 288, 288)
+                                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel20)
+                                            .addComponent(jLabel18))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(spiCFogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(spiCUmi1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(9, 9, 9)
+                                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(painelTipologiaLayout.createSequentialGroup()
+                                                .addGap(29, 29, 29)
+                                                .addComponent(jLabel17)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(spiCSom1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelTipologiaLayout.createSequentialGroup()
+                                                .addComponent(jLabel19)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(spiCMeca1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(30, 30, 30)
+                                .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnTExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnTAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 50, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(painelTipologiaLayout.createSequentialGroup()
+                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        painelTipologiaLayout.setVerticalGroup(
+            painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelTipologiaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelTipologiaLayout.createSequentialGroup()
+                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(txtTLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(spiCFogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spiCSom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel20))
+                        .addGap(18, 18, 18)
+                        .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spiCUmi1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spiCMeca1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(painelTipologiaLayout.createSequentialGroup()
+                        .addComponent(btnTAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnTExcluir)
+                        .addGap(87, 87, 87)))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        itemComponente.setText("Componente");
+        itemComponente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemComponenteMouseClicked(evt);
+            }
+        });
+        menuMantedor.add(itemComponente);
+
+        itemTipologia.setText("Tipologia");
+        itemTipologia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemTipologiaMouseClicked(evt);
+            }
+        });
+        menuMantedor.add(itemTipologia);
+
+        setJMenuBar(menuMantedor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(painelComponente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(painelTipologia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(painelComponente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(painelTipologia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void itemComponenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemComponenteMouseClicked
+        painelComponente.setVisible(true);
+        painelTipologia.setVisible(false);
+    }//GEN-LAST:event_itemComponenteMouseClicked
+
+    private void itemTipologiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTipologiaMouseClicked
+        painelComponente.setVisible(false);
+        painelTipologia.setVisible(true);
+    }//GEN-LAST:event_itemTipologiaMouseClicked
+    
+    private void preencherCComponente() {
+        tblCComponente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nome desc.", "Altura", "Largura", "Massa", "Preço", "Tipo", "Fogo", "Som", "Umid.", "Mecan."
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        tblCComponente.getColumnModel().getColumn(0).setMaxWidth(200);
+        tblCComponente.getColumnModel().getColumn(1).setMaxWidth(100);
+        tblCComponente.getColumnModel().getColumn(2).setMaxWidth(100);
+        tblCComponente.getColumnModel().getColumn(3).setMaxWidth(100);
+        tblCComponente.getColumnModel().getColumn(4).setMaxWidth(100);
+        tblCComponente.getColumnModel().getColumn(5).setMaxWidth(130);
+        tblCComponente.getColumnModel().getColumn(6).setMaxWidth(60);
+        tblCComponente.getColumnModel().getColumn(7).setMaxWidth(60);
+        tblCComponente.getColumnModel().getColumn(8).setMaxWidth(60);
+        tblCComponente.getColumnModel().getColumn(9).setMaxWidth(60);
+    }
+    
+    private void preencherTComponente() {
+        tblTComponente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nome desc.", "Altura", "Largura", "Massa", "Preço", "Tipo", "Fogo", "Som", "Umid.", "Mecan."
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        tblTComponente.getColumnModel().getColumn(0).setMaxWidth(200);
+        tblTComponente.getColumnModel().getColumn(1).setMaxWidth(100);
+        tblTComponente.getColumnModel().getColumn(2).setMaxWidth(100);
+        tblTComponente.getColumnModel().getColumn(3).setMaxWidth(100);
+        tblTComponente.getColumnModel().getColumn(4).setMaxWidth(100);
+        tblTComponente.getColumnModel().getColumn(5).setMaxWidth(130);
+        tblTComponente.getColumnModel().getColumn(6).setMaxWidth(60);
+        tblTComponente.getColumnModel().getColumn(7).setMaxWidth(60);
+        tblTComponente.getColumnModel().getColumn(8).setMaxWidth(60);
+        tblTComponente.getColumnModel().getColumn(9).setMaxWidth(60);
+    }
+    
+    private void preencherTTipologia() {
+        tblTTipologia.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Altura", "Largura", "Preço", "Fogo", "Som", "Umid.", "Mecan."
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        tblTTipologia.getColumnModel().getColumn(0).setMaxWidth(200);
+        tblTTipologia.getColumnModel().getColumn(1).setMaxWidth(200);
+        tblTTipologia.getColumnModel().getColumn(2).setMaxWidth(200);
+        tblTTipologia.getColumnModel().getColumn(3).setMaxWidth(60);
+        tblTTipologia.getColumnModel().getColumn(4).setMaxWidth(60);
+        tblTTipologia.getColumnModel().getColumn(5).setMaxWidth(60);
+        tblTTipologia.getColumnModel().getColumn(6).setMaxWidth(60);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -111,5 +627,59 @@ public class FormMantedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCAdicionar;
+    private javax.swing.JButton btnCExcluir;
+    private javax.swing.JButton btnTAdicionar;
+    private javax.swing.JButton btnTExcluir;
+    private javax.swing.JComboBox cmbCTipo;
+    private javax.swing.JMenu itemComponente;
+    private javax.swing.JMenu itemTipologia;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JMenuBar menuMantedor;
+    private javax.swing.JPanel painelComponente;
+    private javax.swing.JPanel painelTipologia;
+    private javax.swing.JSpinner spiCFogo;
+    private javax.swing.JSpinner spiCFogo1;
+    private javax.swing.JSpinner spiCMeca;
+    private javax.swing.JSpinner spiCMeca1;
+    private javax.swing.JSpinner spiCSom;
+    private javax.swing.JSpinner spiCSom1;
+    private javax.swing.JSpinner spiCUmi;
+    private javax.swing.JSpinner spiCUmi1;
+    private javax.swing.JTable tblCComponente;
+    private javax.swing.JTable tblTComponente;
+    private javax.swing.JTable tblTTipologia;
+    private javax.swing.JTextField txtCAltura;
+    private javax.swing.JTextField txtCLargura;
+    private javax.swing.JTextField txtCMassa;
+    private javax.swing.JTextField txtCNome;
+    private javax.swing.JTextField txtCPreco;
+    private javax.swing.JTextField txtTAltura;
+    private javax.swing.JTextField txtTLargura;
+    private javax.swing.JTextField txtTPreco;
     // End of variables declaration//GEN-END:variables
 }
