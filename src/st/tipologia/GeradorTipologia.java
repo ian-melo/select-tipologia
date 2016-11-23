@@ -11,7 +11,8 @@ import java.util.List;
  * sob determinada configuração de dimensões e ambiente
  * @author SCS214
  */
-public class GeradorTipologia {
+public class GeradorTipologia 
+{
     /**
      * Altura demandada da tipologia
      */
@@ -44,10 +45,17 @@ public class GeradorTipologia {
         //Busca das tipologias existentes
         List<Tipologia> tipologiasBuscadas = Tipologia.listarTipologias();
         //Seleção das tipologias buscadas
-        /**
-         * IMPLEMENTE AQUI
-         * tipologiasEscolhidas.add(t);
-         */
+        System.out.println(tipologiasBuscadas.size());
+        for(Tipologia t : tipologiasBuscadas)
+        {
+           
+           if(t.getAltura() >= this.altura && t.getLargura() == this.largura && t.getAmbiente().equals(t))
+           {
+               tipologiasEscolhidas.add(t);    
+           }
+           
+        }
+         
         //Cálculo de tipologias com componentes existentes
         this.calcularTipologia();
         return tipologiasEscolhidas;
@@ -56,7 +64,8 @@ public class GeradorTipologia {
      * Realiza o cálculo para criação de tipologias, com base nos componentes,
      * e as armazena na base de dados
      */
-    private void calcularTipologia() {
+    private void calcularTipologia() 
+    {
         List<Componente> componentesEscolhidos;
         Tipologia t;
         //Busca dos componentes existes
