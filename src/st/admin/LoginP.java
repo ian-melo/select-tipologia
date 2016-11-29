@@ -40,7 +40,6 @@ public class LoginP extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -120,15 +119,16 @@ public class LoginP extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.");
             return;
         }
-        JOptionPane.showMessageDialog(null, "OK");
+        
         
         Funcionario fun = new Funcionario();
         fun.setNomeLogin(txtLogin.getText());
         fun.setSenha(txtSenha.getText());
         Sessao.logar(fun);
         if (Sessao.getFuncionario() != null) {
-            FormPedido fPedido = new FormPedido();
-            fPedido.show();
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            //JOptionPane.showMessageDialog(null, "OK");
+            menuPrincipal.show();
             this.hide();
         } else {
             JOptionPane.showMessageDialog(null, "Login ou Senha incorretos");

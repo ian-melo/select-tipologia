@@ -36,7 +36,6 @@ public class FormPedido extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_fechar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -63,6 +62,11 @@ public class FormPedido extends javax.swing.JFrame {
         jLabel1.setText("Pedidos");
 
         btn_fechar.setText("Fechar");
+        btn_fechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_fecharActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +109,10 @@ public class FormPedido extends javax.swing.JFrame {
     private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
         preencherTabela();
     }//GEN-LAST:event_btn_atualizarActionPerformed
+
+    private void btn_fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fecharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_fecharActionPerformed
 
     /**
      * @param args the command line arguments

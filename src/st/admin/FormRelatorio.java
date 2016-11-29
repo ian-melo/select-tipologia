@@ -41,7 +41,6 @@ public class FormRelatorio extends javax.swing.JFrame {
         tb_relatorio = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
