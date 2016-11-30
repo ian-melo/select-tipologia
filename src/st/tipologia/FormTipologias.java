@@ -1,6 +1,3 @@
-//TODO: Modelar
-//TODO: Implementar
-//TODO: Testar
 package st.tipologia;
 
 import javax.swing.JOptionPane;
@@ -10,14 +7,18 @@ import javax.swing.JOptionPane;
  * @author SCS214
  */
 public class FormTipologias extends javax.swing.JFrame {
-
+    ControleTipologia cTip;
+    
     /**
      * Creates new form FormTipologias
      */
     public FormTipologias() {
+        cTip = new ControleTipologia();
+        
         initComponents();
         preencherComponente();
         preencherTipologia();
+        listarTipologias();
     }
 
     /**
@@ -30,19 +31,25 @@ public class FormTipologias extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComponente = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTipologia = new javax.swing.JTable();
+        btnDetalhes = new javax.swing.JButton();
 
         setTitle("Ver Tipologias");
 
         jLabel1.setText("Lista de tipologias existentes:");
 
-        jButton1.setText("Ver Detalhes");
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         tblComponente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,6 +102,13 @@ public class FormTipologias extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblTipologia);
 
+        btnDetalhes.setText("Ver Detalhes");
+        btnDetalhes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetalhesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,8 +120,13 @@ public class FormTipologias extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -122,30 +141,33 @@ public class FormTipologias extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAtualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDetalhes)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        listarTipologias();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
+        verTipologia();
+    }//GEN-LAST:event_btnDetalhesActionPerformed
     
     private void preencherComponente() {
         tblComponente.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
                 "Nome desc.", "Altura (cm)", "Largura (cm)", "Massa (g)", "Preço (R$)",
                 "Tipo", "Fogo", "Som", "Umid.", "Mecan."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             @Override
@@ -168,20 +190,13 @@ public class FormTipologias extends javax.swing.JFrame {
     
     private void preencherTipologia() {
         tblTipologia.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
                 "Altura (cm)", "Largura (cm)", "Preço (R$)", "Fogo", "Som", "Umid.", "Mecan."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             @Override
@@ -246,17 +261,72 @@ public class FormTipologias extends javax.swing.JFrame {
      * Faz a listagem de tipologias existentes
      */
     public void listarTipologias() {
+        tblTipologia.setModel(new javax.swing.table.DefaultTableModel(
+            cTip.verTipologias(),
+            new String [] {
+                "Altura (cm)", "Largura (cm)", "Preço (R$)", "Fogo", "Som", "Umid.", "Mecan."
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         
+        tblTipologia.getColumnModel().getColumn(0).setMaxWidth(200);
+        tblTipologia.getColumnModel().getColumn(1).setMaxWidth(200);
+        tblTipologia.getColumnModel().getColumn(2).setMaxWidth(200);
+        tblTipologia.getColumnModel().getColumn(3).setMaxWidth(60);
+        tblTipologia.getColumnModel().getColumn(4).setMaxWidth(60);
+        tblTipologia.getColumnModel().getColumn(5).setMaxWidth(60);
+        tblTipologia.getColumnModel().getColumn(6).setMaxWidth(60);
     }
     /**
      * Vê detalhes da tipologia
      */
     public void verTipologia() {
+        //Obtém linha do registro
+        int linha = tblTipologia.getSelectedRow();
+        //Retorna, se não foi selecionado
+        if(linha < 0)
+            return;
         
+        tblComponente.setModel(new javax.swing.table.DefaultTableModel(
+            cTip.verDetalhes(linha),
+            new String [] {
+                "Nome desc.", "Altura (cm)", "Largura (cm)", "Massa (g)", "Preço (R$)",
+                "Tipo", "Fogo", "Som", "Umid.", "Mecan."
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        tblComponente.getColumnModel().getColumn(0).setMaxWidth(500);
+        tblComponente.getColumnModel().getColumn(1).setMaxWidth(120);
+        tblComponente.getColumnModel().getColumn(2).setMaxWidth(120);
+        tblComponente.getColumnModel().getColumn(3).setMaxWidth(120);
+        tblComponente.getColumnModel().getColumn(4).setMaxWidth(120);
+        tblComponente.getColumnModel().getColumn(5).setMaxWidth(200);
+        tblComponente.getColumnModel().getColumn(6).setMaxWidth(60);
+        tblComponente.getColumnModel().getColumn(7).setMaxWidth(60);
+        tblComponente.getColumnModel().getColumn(8).setMaxWidth(60);
+        tblComponente.getColumnModel().getColumn(9).setMaxWidth(60);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnDetalhes;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -1,4 +1,3 @@
-//TODO: Modelar
 //TODO: Implementar
 //TODO: Testar
 package st.tipologia;
@@ -178,7 +177,6 @@ public class FormMantedor extends javax.swing.JFrame {
                                         .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(spiCFogo, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                                             .addComponent(spiCUmi))
-                                        .addGap(18, 18, 18)
                                         .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(painelComponenteLayout.createSequentialGroup()
                                                 .addGap(29, 29, 29)
@@ -204,10 +202,11 @@ public class FormMantedor extends javax.swing.JFrame {
             painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelComponenteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCAdicionar))
+                .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCAdicionar)
+                    .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(txtCNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(painelComponenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -529,12 +528,12 @@ public class FormMantedor extends javax.swing.JFrame {
     private void preencherTTipologia() {
         tblTTipologia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "Altura", "Largura", "Preço", "Fogo", "Som", "Umid.", "Mecan."

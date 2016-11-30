@@ -93,4 +93,39 @@ public class Ambiente {
     public void setFatorMecanico(int fatorMecanico) {
         this.fatorMecanico = fatorMecanico;
     }
+    
+    /*IGUALDADE*/
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + this.fatorFogo;
+        hash = 23 * hash + this.fatorSom;
+        hash = 23 * hash + this.fatorUmidade;
+        hash = 23 * hash + this.fatorMecanico;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ambiente other = (Ambiente) obj;
+        if (this.fatorFogo != other.fatorFogo) {
+            return false;
+        }
+        if (this.fatorSom != other.fatorSom) {
+            return false;
+        }
+        if (this.fatorUmidade != other.fatorUmidade) {
+            return false;
+        }
+        if (this.fatorMecanico != other.fatorMecanico) {
+            return false;
+        }
+        return true;
+    }    
 }

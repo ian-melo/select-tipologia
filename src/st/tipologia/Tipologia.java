@@ -3,6 +3,7 @@ package st.tipologia;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import st.persistencia.BancoDados;
 import st.persistencia.ConexaoException;
 import st.tipologia.Componente.Tipo;
@@ -34,7 +35,7 @@ public class Tipologia {
     /**
      * Lista de componentes da tipologia
      */
-    private ArrayList<Componente> listaComponentes;
+    private List<Componente> listaComponentes;
     
     /*GETTERS SETTERS*/
     /**
@@ -104,8 +105,43 @@ public class Tipologia {
      * Define a lista de componentes da tipologia
      * @param listaComponentes Lista de componentes da tipologia
      */
-    public void setListaComponentes(ArrayList<Componente> listaComponentes) {
+    public void setListaComponentes(List<Componente> listaComponentes) {
         this.listaComponentes = listaComponentes;
+    }
+    
+    /*IGUALDADE*/
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Float.floatToIntBits(this.altura);
+        hash = 53 * hash + Float.floatToIntBits(this.largura);
+        hash = 53 * hash + Float.floatToIntBits(this.preco);
+        hash = 53 * hash + Objects.hashCode(this.ambiente);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Tipologia other = (Tipologia) obj;
+        if (Float.floatToIntBits(this.altura) != Float.floatToIntBits(other.altura)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.largura) != Float.floatToIntBits(other.largura)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.preco) != Float.floatToIntBits(other.preco)) {
+            return false;
+        }
+        if (!Objects.equals(this.ambiente, other.ambiente)) {
+            return false;
+        }
+        return true;
     }
     
     /*ESTATICOS*/

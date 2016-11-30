@@ -3,6 +3,7 @@ package st.tipologia;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import st.persistencia.BancoDados;
 import st.persistencia.ConexaoException;
 
@@ -152,6 +153,53 @@ public class Componente {
         this.ambiente = ambiente;
     }
     
+    /*IGUALDADE*/
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Float.floatToIntBits(this.altura);
+        hash = 97 * hash + Float.floatToIntBits(this.largura);
+        hash = 97 * hash + Float.floatToIntBits(this.massa);
+        hash = 97 * hash + Float.floatToIntBits(this.preco);
+        hash = 97 * hash + Objects.hashCode(this.tipo);
+        hash = 97 * hash + Objects.hashCode(this.ambiente);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Componente other = (Componente) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.altura) != Float.floatToIntBits(other.altura)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.largura) != Float.floatToIntBits(other.largura)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.massa) != Float.floatToIntBits(other.massa)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.preco) != Float.floatToIntBits(other.preco)) {
+            return false;
+        }
+        if (this.tipo != other.tipo) {
+            return false;
+        }
+        if (!Objects.equals(this.ambiente, other.ambiente)) {
+            return false;
+        }
+        return true;
+    }
+    
     /*ESTATICOS*/
     /**
      * Retorna uma lista com todos os componentes armazenados na base de dados
@@ -165,7 +213,6 @@ public class Componente {
         Ambiente a = null;
         Componente c = null;
         ArrayList<Componente> lc = new ArrayList<>();
-        int codTip = 0;
         
         try {
             //Define String
