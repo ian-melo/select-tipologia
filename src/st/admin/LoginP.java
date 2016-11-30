@@ -7,7 +7,6 @@ package st.admin;
 
 import st.sessao.Funcionario;
 import st.sessao.Sessao;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
