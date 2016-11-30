@@ -69,6 +69,11 @@ public class FormRelatorio extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jScrollPane1);
 
         jButton2.setText("Fechar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,41 +117,9 @@ public class FormRelatorio extends javax.swing.JFrame {
         preencherTabela();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormRelatorio().setVisible(true);
-            }
-        });
-    }
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     public void preencherTabela() {
         this.setTitle("Relatório");
@@ -163,6 +136,26 @@ public class FormRelatorio extends javax.swing.JFrame {
 
         Vector dados = new Vector();
         Vector item = new Vector();
+        //item.clear();
+        item.add("ST 1200X1800");//0
+        item.add("Chapa ST 1200x1800");//1
+        item.add("Ambiente Secos");//2
+        item.add("21/06/2106");//3
+        item.add("Felipe Martins");//4
+        item.add("42217671");//5
+        item.add("ADM");//6
+        dados.add(item);
+        item = new Vector();
+        item.add("RU 1200X1800");//0
+        item.add("Chapa RU 1200x1800");//1
+        item.add("Ambiente Umidos");//2
+        item.add("2/02/2106");//3
+        item.add("Felipe Da Silva");//4
+        item.add("4223-5453");//5
+        item.add("ADM");//6
+        dados.add(item);
+        
+        
 
         //For(){} e BD
         //dados.add(item);

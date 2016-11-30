@@ -91,4 +91,29 @@ public class ControleTipologia {
         }
         return resultado;
     }
+    /**
+     * Mostra os componentes existentes
+     * @return Matriz com a relação dos componentes existentes e seus valores
+     */
+    public Object[][] verComponentes() {
+        //Obtém os componentes
+        List<Componente> listaComponente = Componente.listarComponentes();
+        //Gera uma matriz com os valores
+        int numLinhas = listaComponente.size();
+        int numColunas = 10; //Número de atributos
+        Object resultado[][] = new Object[numLinhas][numColunas];
+        for(int i=0; i<numLinhas; i++) {
+            resultado[i][0] = listaComponente.get(i).getNome();
+            resultado[i][1] = listaComponente.get(i).getAltura();
+            resultado[i][2] = listaComponente.get(i).getLargura();
+            resultado[i][3] = listaComponente.get(i).getMassa();
+            resultado[i][4] = listaComponente.get(i).getPreco();
+            resultado[i][5] = listaComponente.get(i).getTipo().toString();
+            resultado[i][6] = listaComponente.get(i).getAmbiente().getFatorFogo();
+            resultado[i][7] = listaComponente.get(i).getAmbiente().getFatorSom();
+            resultado[i][8] = listaComponente.get(i).getAmbiente().getFatorUmidade();
+            resultado[i][9] = listaComponente.get(i).getAmbiente().getFatorMecanico();
+        }
+        return resultado;
+    }
 }

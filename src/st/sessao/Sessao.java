@@ -28,7 +28,10 @@ public class Sessao {
         String senha = f.getSenha();
         String login = f.getNomeLogin();
 
-        if ("adm".equals(login) && "123".equals(senha)) {
+        if (("adm".equals(login) && "123".equals(senha)) ||
+           ("fabio".equals(login) && "123".equals(senha)) ||
+           ("felipe".equals(login) && "123".equals(senha)) ||
+           ("colab".equals(login) && "123".equals(senha))) {
             //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
             f.setDataHoraAcesso(new Date(System.currentTimeMillis()));//Pega a hora do sistema q iniciou

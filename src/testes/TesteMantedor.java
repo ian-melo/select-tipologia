@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import st.tipologia.Ambiente;
 import st.tipologia.Componente;
+import st.tipologia.ControleMantedor;
 import st.tipologia.MantedorItem;
 import st.tipologia.Tipologia;
 
@@ -12,13 +13,13 @@ import st.tipologia.Tipologia;
  * @author SCS214
  */
 public class TesteMantedor {
-    public static void main(String[] args) {
+   /*public static void main(String[] args) {
         MantedorItem mantedor = new MantedorItem();
         Ambiente a = new Ambiente();
         Componente c = new Componente();
         Tipologia t = new Tipologia();
         
-        /*//BUSCA COMPONENTE
+        //BUSCA COMPONENTE
         a.setFatorFogo(100);
         a.setFatorMecanico(100);
         a.setFatorSom(0);
@@ -33,15 +34,15 @@ public class TesteMantedor {
         //System.out.println(mantedor.buscarItem(c,false));
         
         //BUSCA TIPOLOGIA
-        a.setFatorFogo(60);
-        a.setFatorMecanico(80);
-        a.setFatorSom(70);
-        a.setFatorUmidade(90);
-        t.setAmbiente(a);
-        t.setAltura(500.6f);
-        t.setLargura(500.3f);
-        t.setPreco(853.47f);
-        //System.out.println(mantedor.buscarItem(t,true));*/
+        //a.setFatorFogo(60);
+        //a.setFatorMecanico(80);
+        //a.setFatorSom(70);
+        //a.setFatorUmidade(90);
+        //t.setAmbiente(a);
+        //t.setAltura(500.6f);
+        //t.setLargura(500.3f);
+        //t.setPreco(853.47f);
+        //System.out.println(mantedor.buscarItem(t,true));
         
         List<Componente> comps = new ArrayList<>();
         //INSERE COMPONENTE
@@ -82,13 +83,18 @@ public class TesteMantedor {
         a.setFatorSom(100);
         a.setFatorUmidade(100);
         t.setAmbiente(a);
-        t.setAltura(140.7f);
-        t.setLargura(180.6f);
+        t.setAltura(143.7f);
+        t.setLargura(183.6f);
         t.setPreco(853.37f);
         t.setListaComponentes(comps);
-        //System.out.println(mantedor.inserirTipologia(t));
+        
+        
+        ControleMantedor cont = new ControleMantedor();
+        //cont.inserirTipologia(t);
+        //System.out.println();
         
         //EXCLUI TIPOLOGIA
-        System.out.println(mantedor.excluirTipologia(t));
-    }   
+        //cont.excluirTipologia(t);
+        //System.out.println(mantedor.excluirTipologia(t));
+    }*/
 }

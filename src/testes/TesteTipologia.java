@@ -10,7 +10,7 @@ import st.tipologia.Tipologia;
  * @author SCS214
  */
 public class TesteTipologia {
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         List<Tipologia> listaTip = Tipologia.listarTipologias();
         for(Tipologia t : listaTip) {
             System.out.println("----TIPOLOGIA----");
@@ -32,5 +32,5 @@ public class TesteTipologia {
                     a.getFatorSom() + "/" + a.getFatorUmidade() + "/" + a.getFatorMecanico());
             }
         }
-    }
+    }*/
 }

@@ -2,14 +2,19 @@
 //TODO: Testar
 package st.tipologia;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
 
 /**
  * Formulário para manutenção (inserção e exclusão) dos componentes e tipologias
  * @author SCS214
  */
 public class FormMantedor extends javax.swing.JFrame {
-
+    
+    ControleTipologia cTip = new ControleTipologia();
+    
     /**
      * Creates new form FormMantedor
      */
@@ -74,13 +79,13 @@ public class FormMantedor extends javax.swing.JFrame {
         tblTComponente = new javax.swing.JTable();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
-        spiCSom1 = new javax.swing.JSpinner();
+        spiTSom = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
-        spiCMeca1 = new javax.swing.JSpinner();
+        spiTMeca = new javax.swing.JSpinner();
         jLabel18 = new javax.swing.JLabel();
-        spiCUmi1 = new javax.swing.JSpinner();
+        spiTUmi = new javax.swing.JSpinner();
         jLabel19 = new javax.swing.JLabel();
-        spiCFogo1 = new javax.swing.JSpinner();
+        spiTFogo = new javax.swing.JSpinner();
         jLabel20 = new javax.swing.JLabel();
         menuMantedor = new javax.swing.JMenuBar();
         itemComponente = new javax.swing.JMenu();
@@ -99,8 +104,18 @@ public class FormMantedor extends javax.swing.JFrame {
         jLabel5.setText("Preço (R$):");
 
         btnCAdicionar.setText("Adicionar");
+        btnCAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCAdicionarActionPerformed(evt);
+            }
+        });
 
         btnCExcluir.setText("Excluir");
+        btnCExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCExcluirActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Selecione um componente:");
 
@@ -115,9 +130,14 @@ public class FormMantedor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblCComponente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCComponenteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblCComponente);
 
-        cmbCTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chapa", "Forro", "Parafuso" }));
+        cmbCTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CHAPA", "FORRO", "PARAFUSO" }));
 
         jLabel12.setText("Tipo:");
 
@@ -256,8 +276,18 @@ public class FormMantedor extends javax.swing.JFrame {
         jLabel8.setText("Preço (R$):");
 
         btnTAdicionar.setText("Adicionar");
+        btnTAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTAdicionarActionPerformed(evt);
+            }
+        });
 
         btnTExcluir.setText("Excluir");
+        btnTExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTExcluirActionPerformed(evt);
+            }
+        });
 
         tblTTipologia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -270,6 +300,11 @@ public class FormMantedor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblTTipologia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTTipologiaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblTTipologia);
 
         jLabel10.setText("Selecione os componentes para adicionar à tipologia:");
@@ -339,19 +374,19 @@ public class FormMantedor extends javax.swing.JFrame {
                                             .addComponent(jLabel18))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(spiCFogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(spiCUmi1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(spiTFogo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(spiTUmi, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(9, 9, 9)
                                         .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(painelTipologiaLayout.createSequentialGroup()
                                                 .addGap(29, 29, 29)
                                                 .addComponent(jLabel17)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(spiCSom1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(spiTSom, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelTipologiaLayout.createSequentialGroup()
                                                 .addComponent(jLabel19)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(spiCMeca1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(spiTMeca, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(30, 30, 30)
                                 .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnTExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -379,14 +414,14 @@ public class FormMantedor extends javax.swing.JFrame {
                         .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(spiCFogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spiCSom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spiTFogo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spiTSom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17)
                             .addComponent(jLabel20))
                         .addGap(18, 18, 18)
                         .addGroup(painelTipologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spiCUmi1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spiCMeca1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spiTUmi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spiTMeca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel19)
                             .addComponent(jLabel18))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -452,23 +487,75 @@ public class FormMantedor extends javax.swing.JFrame {
         painelComponente.setVisible(false);
         painelTipologia.setVisible(true);
     }//GEN-LAST:event_itemTipologiaMouseClicked
-    
-    private void preencherCComponente() {
-        tblCComponente.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
+
+    private void btnCAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAdicionarActionPerformed
+        inserirComponente();
+        preencherCComponente();
+        preencherTComponente();
+        preencherTTipologia();
+    }//GEN-LAST:event_btnCAdicionarActionPerformed
+
+    private void btnCExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCExcluirActionPerformed
+        excluirComponente();
+        preencherCComponente();
+        preencherTComponente();
+        preencherTTipologia();
+    }//GEN-LAST:event_btnCExcluirActionPerformed
+
+    private void btnTAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTAdicionarActionPerformed
+        inserirTipologia();
+        preencherCComponente();
+        preencherTComponente();
+        preencherTTipologia();
+    }//GEN-LAST:event_btnTAdicionarActionPerformed
+
+    private void btnTExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTExcluirActionPerformed
+        excluirComponente();
+        preencherCComponente();
+        preencherTComponente();
+        preencherTTipologia();
+    }//GEN-LAST:event_btnTExcluirActionPerformed
+
+    private void tblCComponenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCComponenteMouseClicked
+        int linha = tblCComponente.getSelectedRow();
+        if(linha < 0)
+            return;
+        
+        txtCNome.setText(tblCComponente.getModel().getValueAt(linha, 0).toString());
+        txtCAltura.setText(tblCComponente.getModel().getValueAt(linha, 1).toString());
+        txtCLargura.setText(tblCComponente.getModel().getValueAt(linha, 2).toString());
+        txtCMassa.setText(tblCComponente.getModel().getValueAt(linha, 3).toString());
+        txtCPreco.setText(tblCComponente.getModel().getValueAt(linha, 4).toString());
+        cmbCTipo.setSelectedItem(tblCComponente.getModel().getValueAt(linha, 5).toString());
+        spiCFogo.setModel(new SpinnerNumberModel(Integer.parseInt(tblCComponente.getModel().getValueAt(linha, 6).toString()),0,100,1));
+        spiCSom.setModel(new SpinnerNumberModel(Integer.parseInt(tblCComponente.getModel().getValueAt(linha, 7).toString()),0,100,1));
+        spiCUmi.setModel(new SpinnerNumberModel(Integer.parseInt(tblCComponente.getModel().getValueAt(linha, 8).toString()),0,100,1));
+        spiCMeca.setModel(new SpinnerNumberModel(Integer.parseInt(tblCComponente.getModel().getValueAt(linha, 9).toString()),0,100,1));
+    }//GEN-LAST:event_tblCComponenteMouseClicked
+
+    private void tblTTipologiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTTipologiaMouseClicked
+        int linha = tblTTipologia.getSelectedRow();
+        if(linha < 0)
+            return;
+        
+        txtTAltura.setText(tblTTipologia.getModel().getValueAt(linha, 0).toString());
+        txtTLargura.setText(tblTTipologia.getModel().getValueAt(linha, 1).toString());
+        txtTPreco.setText(tblTTipologia.getModel().getValueAt(linha, 2).toString());
+        spiTFogo.setModel(new SpinnerNumberModel(Integer.parseInt(tblTTipologia.getModel().getValueAt(linha, 3).toString()),0,100,1));;
+        spiTSom.setModel(new SpinnerNumberModel(Integer.parseInt(tblTTipologia.getModel().getValueAt(linha, 4).toString()),0,100,1));;
+        spiTUmi.setModel(new SpinnerNumberModel(Integer.parseInt(tblTTipologia.getModel().getValueAt(linha, 5).toString()),0,100,1));;
+        spiTMeca.setModel(new SpinnerNumberModel(Integer.parseInt(tblTTipologia.getModel().getValueAt(linha, 6).toString()),0,100,1));;
+        
+        
+        tblTComponente.setModel(new javax.swing.table.DefaultTableModel(
+            cTip.verDetalhes(linha),
             new String [] {
-                "Nome desc.", "Altura", "Largura", "Massa", "Preço", "Tipo", "Fogo", "Som", "Umid.", "Mecan."
+                "Nome desc.", "Altura (cm)", "Largura (cm)", "Massa (g)", "Preço (R$)",
+                "Tipo", "Fogo", "Som", "Umid.", "Mecan."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             @Override
@@ -477,12 +564,42 @@ public class FormMantedor extends javax.swing.JFrame {
             }
         });
         
-        tblCComponente.getColumnModel().getColumn(0).setMaxWidth(200);
-        tblCComponente.getColumnModel().getColumn(1).setMaxWidth(100);
-        tblCComponente.getColumnModel().getColumn(2).setMaxWidth(100);
-        tblCComponente.getColumnModel().getColumn(3).setMaxWidth(100);
-        tblCComponente.getColumnModel().getColumn(4).setMaxWidth(100);
-        tblCComponente.getColumnModel().getColumn(5).setMaxWidth(130);
+        tblTComponente.getColumnModel().getColumn(0).setMaxWidth(500);
+        tblTComponente.getColumnModel().getColumn(1).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(2).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(3).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(4).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(5).setMaxWidth(200);
+        tblTComponente.getColumnModel().getColumn(6).setMaxWidth(60);
+        tblTComponente.getColumnModel().getColumn(7).setMaxWidth(60);
+        tblTComponente.getColumnModel().getColumn(8).setMaxWidth(60);
+        tblTComponente.getColumnModel().getColumn(9).setMaxWidth(60);
+    }//GEN-LAST:event_tblTTipologiaMouseClicked
+    
+    private void preencherCComponente() {
+        tblCComponente.setModel(new javax.swing.table.DefaultTableModel(
+            cTip.verComponentes(),
+            new String [] {
+                "Nome desc.", "Altura (cm)", "Largura (cm)", "Massa (g)", "Preço (R$)",
+                "Tipo", "Fogo", "Som", "Umid.", "Mecan."
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        tblCComponente.getColumnModel().getColumn(0).setMaxWidth(500);
+        tblCComponente.getColumnModel().getColumn(1).setMaxWidth(120);
+        tblCComponente.getColumnModel().getColumn(2).setMaxWidth(120);
+        tblCComponente.getColumnModel().getColumn(3).setMaxWidth(120);
+        tblCComponente.getColumnModel().getColumn(4).setMaxWidth(120);
+        tblCComponente.getColumnModel().getColumn(5).setMaxWidth(200);
         tblCComponente.getColumnModel().getColumn(6).setMaxWidth(60);
         tblCComponente.getColumnModel().getColumn(7).setMaxWidth(60);
         tblCComponente.getColumnModel().getColumn(8).setMaxWidth(60);
@@ -491,20 +608,14 @@ public class FormMantedor extends javax.swing.JFrame {
     
     private void preencherTComponente() {
         tblTComponente.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
-                "Nome desc.", "Altura", "Largura", "Massa", "Preço", "Tipo", "Fogo", "Som", "Umid.", "Mecan."
+                "Nome desc.", "Altura (cm)", "Largura (cm)", "Massa (g)", "Preço (R$)",
+                "Tipo", "Fogo", "Som", "Umid.", "Mecan."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             @Override
@@ -513,12 +624,12 @@ public class FormMantedor extends javax.swing.JFrame {
             }
         });
         
-        tblTComponente.getColumnModel().getColumn(0).setMaxWidth(200);
-        tblTComponente.getColumnModel().getColumn(1).setMaxWidth(100);
-        tblTComponente.getColumnModel().getColumn(2).setMaxWidth(100);
-        tblTComponente.getColumnModel().getColumn(3).setMaxWidth(100);
-        tblTComponente.getColumnModel().getColumn(4).setMaxWidth(100);
-        tblTComponente.getColumnModel().getColumn(5).setMaxWidth(130);
+        tblTComponente.getColumnModel().getColumn(0).setMaxWidth(500);
+        tblTComponente.getColumnModel().getColumn(1).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(2).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(3).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(4).setMaxWidth(120);
+        tblTComponente.getColumnModel().getColumn(5).setMaxWidth(200);
         tblTComponente.getColumnModel().getColumn(6).setMaxWidth(60);
         tblTComponente.getColumnModel().getColumn(7).setMaxWidth(60);
         tblTComponente.getColumnModel().getColumn(8).setMaxWidth(60);
@@ -527,20 +638,13 @@ public class FormMantedor extends javax.swing.JFrame {
     
     private void preencherTTipologia() {
         tblTTipologia.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
+            cTip.verTipologias(),
             new String [] {
-                "Altura", "Largura", "Preço", "Fogo", "Som", "Umid.", "Mecan."
+                "Altura (cm)", "Largura (cm)", "Preço (R$)", "Fogo", "Som", "Umid.", "Mecan."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             @Override
@@ -559,41 +663,6 @@ public class FormMantedor extends javax.swing.JFrame {
     }
     
     /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMantedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMantedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMantedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMantedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormMantedor().setVisible(true);
-            }
-        });
-    }
-    
-    /**
      * Exibe uma caixa de mensagem
      * @param msg Mensagem a ser exibida
      */
@@ -604,25 +673,191 @@ public class FormMantedor extends javax.swing.JFrame {
      * Insere um componente
      */
     public void inserirComponente() {
+        if(!validarCCampos())
+            return;
         
+        try {
+            Componente c = new Componente();
+            c.setNome(txtCNome.getText());
+            c.setAltura(Float.parseFloat(txtCAltura.getText()));
+            c.setLargura(Float.parseFloat(txtCLargura.getText()));
+            c.setMassa(Float.parseFloat(txtCMassa.getText()));
+            c.setPreco(Float.parseFloat(txtCPreco.getText()));
+            c.setTipo(Componente.Tipo.valueOf(cmbCTipo.getSelectedItem().toString()));
+
+            Ambiente a = new Ambiente();
+            a.setFatorFogo(Integer.parseInt(spiCFogo.getValue().toString()));
+            a.setFatorSom(Integer.parseInt(spiCSom.getValue().toString()));
+            a.setFatorUmidade(Integer.parseInt(spiCUmi.getValue().toString()));
+            a.setFatorMecanico(Integer.parseInt(spiCMeca.getValue().toString()));
+            c.setAmbiente(a);
+            
+            ControleMantedor cm = new ControleMantedor();
+            cm.inserirComponente(c);
+        } catch(Exception ex) {
+            exibirMensagem("Os dados não foram inseridos corretamente.");
+        }
     }
     /**
      * Exclui um componente
      */
     public void excluirComponente() {
+        if(!validarCCampos())
+            return;
         
+        try {
+            Componente c = new Componente();
+            c.setNome(txtCNome.getText());
+            c.setAltura(Float.parseFloat(txtCAltura.getText()));
+            c.setLargura(Float.parseFloat(txtCLargura.getText()));
+            c.setMassa(Float.parseFloat(txtCMassa.getText()));
+            c.setPreco(Float.parseFloat(txtCPreco.getText()));
+            c.setTipo(Componente.Tipo.valueOf(cmbCTipo.getSelectedItem().toString()));
+
+            Ambiente a = new Ambiente();
+            a.setFatorFogo(Integer.parseInt(spiCFogo.getValue().toString()));
+            a.setFatorSom(Integer.parseInt(spiCSom.getValue().toString()));
+            a.setFatorUmidade(Integer.parseInt(spiCUmi.getValue().toString()));
+            a.setFatorMecanico(Integer.parseInt(spiCMeca.getValue().toString()));
+            c.setAmbiente(a);
+            
+            ControleMantedor cm = new ControleMantedor();
+            cm.excluirComponente(c);
+        } catch(Exception ex) {
+            exibirMensagem("Os dados não foram inseridos corretamente.");
+        }
     }
     /**
      * Insere uma tipologia
      */
     public void inserirTipologia() {
+        if(!validarTCampos())
+            return;
         
+        try {
+            Tipologia t = new Tipologia();
+            t.setAltura(Float.parseFloat(txtTAltura.getText()));
+            t.setLargura(Float.parseFloat(txtTLargura.getText()));
+            t.setPreco(Float.parseFloat(txtTPreco.getText()));
+            
+            Ambiente am = new Ambiente();
+            am.setFatorFogo(Integer.parseInt(spiTFogo.getValue().toString()));
+            am.setFatorSom(Integer.parseInt(spiTSom.getValue().toString()));
+            am.setFatorUmidade(Integer.parseInt(spiTUmi.getValue().toString()));
+            am.setFatorMecanico(Integer.parseInt(spiTMeca.getValue().toString()));
+            t.setAmbiente(am);
+            
+            List<Componente> comps = new ArrayList<>();
+            for(int i: tblTComponente.getSelectedRows()) {
+                Componente c = new Componente();
+                c.setNome(tblTComponente.getModel().getValueAt(i, 0).toString());
+                c.setAltura(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 1).toString()));
+                c.setLargura(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 2).toString()));
+                c.setMassa(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 3).toString()));
+                c.setPreco(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 4).toString()));
+                c.setTipo(Componente.Tipo.valueOf(tblTComponente.getModel().getValueAt(i, 5).toString()));
+
+                Ambiente a = new Ambiente();
+                a.setFatorFogo(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 6).toString()));
+                a.setFatorSom(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 7).toString()));
+                a.setFatorUmidade(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 8).toString()));
+                a.setFatorMecanico(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 9).toString()));
+                c.setAmbiente(a);
+
+                comps.add(c);
+            }
+            t.setListaComponentes(comps);
+            
+            //TESTE
+            /*System.out.println("Inserindo tipologia");
+            System.out.println(t.getAltura());
+            System.out.println(t.getLargura());
+            System.out.println(t.getPreco());
+            System.out.println(t.getAmbiente().getFatorFogo());
+            System.out.println(t.getAmbiente().getFatorSom());
+            System.out.println(t.getAmbiente().getFatorUmidade());
+            System.out.println(t.getAmbiente().getFatorMecanico());*/
+            //TESTE
+            
+            ControleMantedor cm = new ControleMantedor();
+            cm.inserirTipologia(t);
+        } catch(Exception ex) {
+            exibirMensagem("Os dados não foram inseridos corretamente.");
+        }
     }
     /**
      * Exclui uma tipologia
      */
     public void excluirTipologia() {
+        if(!validarTCampos())
+            return;
         
+        try {
+            Tipologia t = new Tipologia();
+            t.setAltura(Float.parseFloat(txtTAltura.getText()));
+            t.setLargura(Float.parseFloat(txtTLargura.getText()));
+            t.setPreco(Float.parseFloat(txtTPreco.getText()));
+            
+            Ambiente am = new Ambiente();
+            am.setFatorFogo(Integer.parseInt(spiTFogo.getValue().toString()));
+            am.setFatorSom(Integer.parseInt(spiTSom.getValue().toString()));
+            am.setFatorUmidade(Integer.parseInt(spiTUmi.getValue().toString()));
+            am.setFatorMecanico(Integer.parseInt(spiTMeca.getValue().toString()));
+            t.setAmbiente(am);
+            
+            List<Componente> comps = new ArrayList<>();
+            for(int i: tblTComponente.getSelectedRows()) {
+                Componente c = new Componente();
+                c.setNome(tblTComponente.getModel().getValueAt(i, 0).toString());
+                c.setAltura(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 1).toString()));
+                c.setLargura(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 2).toString()));
+                c.setMassa(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 3).toString()));
+                c.setPreco(Float.parseFloat(tblTComponente.getModel().getValueAt(i, 4).toString()));
+                c.setTipo(Componente.Tipo.valueOf(tblTComponente.getModel().getValueAt(i, 5).toString()));
+
+                Ambiente a = new Ambiente();
+                a.setFatorFogo(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 6).toString()));
+                a.setFatorSom(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 7).toString()));
+                a.setFatorUmidade(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 8).toString()));
+                a.setFatorMecanico(Integer.parseInt(tblTComponente.getModel().getValueAt(i, 9).toString()));
+                c.setAmbiente(a);
+
+                comps.add(c);
+            }
+            t.setListaComponentes(comps);
+            
+            ControleMantedor cm = new ControleMantedor();
+            cm.excluirTipologia(t);
+        } catch(Exception ex) {
+            exibirMensagem("Os dados não foram inseridos corretamente.");
+        }
+    }
+    
+    public boolean validarCCampos() {
+        return(
+                !"".equals(txtCNome.getText()) &&
+                !"".equals(txtCAltura.getText()) &&
+                !"".equals(txtCLargura.getText()) &&
+                !"".equals(txtCMassa.getText()) &&
+                !"".equals(txtCPreco.getText()) &&
+                !"".equals(cmbCTipo.getSelectedItem().toString()) &&
+                !"".equals(spiCFogo.getValue().toString()) &&
+                !"".equals(spiCSom.getValue().toString()) &&
+                !"".equals(spiCUmi.getValue().toString()) &&
+                !"".equals(spiCMeca.getValue().toString())
+                );
+    }
+    
+    public boolean validarTCampos() {
+        return(
+                !"".equals(txtTAltura.getText()) &&
+                !"".equals(txtTLargura.getText()) &&
+                !"".equals(txtTPreco.getText()) &&
+                !"".equals(spiTFogo.getValue().toString()) &&
+                !"".equals(spiTSom.getValue().toString()) &&
+                !"".equals(spiTUmi.getValue().toString()) &&
+                !"".equals(spiTMeca.getValue().toString())
+                );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -662,13 +897,13 @@ public class FormMantedor extends javax.swing.JFrame {
     private javax.swing.JPanel painelComponente;
     private javax.swing.JPanel painelTipologia;
     private javax.swing.JSpinner spiCFogo;
-    private javax.swing.JSpinner spiCFogo1;
     private javax.swing.JSpinner spiCMeca;
-    private javax.swing.JSpinner spiCMeca1;
     private javax.swing.JSpinner spiCSom;
-    private javax.swing.JSpinner spiCSom1;
     private javax.swing.JSpinner spiCUmi;
-    private javax.swing.JSpinner spiCUmi1;
+    private javax.swing.JSpinner spiTFogo;
+    private javax.swing.JSpinner spiTMeca;
+    private javax.swing.JSpinner spiTSom;
+    private javax.swing.JSpinner spiTUmi;
     private javax.swing.JTable tblCComponente;
     private javax.swing.JTable tblTComponente;
     private javax.swing.JTable tblTTipologia;

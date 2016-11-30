@@ -9,7 +9,7 @@ import st.tipologia.Componente;
  * @author SCS214
  */
 public class TesteComponente {
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         List<Componente> listaComp = Componente.listarComponentes();
         for(Componente c : listaComp) {
             System.out.println("----" + c.getNome() + "----");
@@ -22,5 +22,5 @@ public class TesteComponente {
             System.out.println("Fogo/Som/Umi/Meca: " + a.getFatorFogo() + "/" + 
                 a.getFatorSom() + "/" + a.getFatorUmidade() + "/" + a.getFatorMecanico());
         }
-    }
+    }*/
 }

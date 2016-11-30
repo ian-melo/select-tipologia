@@ -18,7 +18,7 @@ import st.tipologia.Tipologia;
  */
 public class TesteGeradorTipologia 
 {
-    public static void main(String[] args)
+/*    public static void main(String[] args)
     {
         GeradorTipologia novo = new GeradorTipologia();
         Ambiente a = new Ambiente();
@@ -40,5 +40,5 @@ public class TesteGeradorTipologia
        
         
         
-    }
+    }*/
 }

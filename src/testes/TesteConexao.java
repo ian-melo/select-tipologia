@@ -8,7 +8,7 @@ import st.persistencia.ConexaoException;
  * @author SCS214
  */
 public class TesteConexao {
-    public static void main(String[] args) throws ConexaoException {
+    /*public static void main(String[] args) throws ConexaoException {
         BancoDados bd = new BancoDados();
         bd.abrirConexao();
         bd.fecharConexao();
@@ -17,5 +17,5 @@ public class TesteConexao {
         bd.abrirConexao();
         
         bd.fecharConexao();
-    }
+    }*/
 }

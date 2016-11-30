@@ -7,7 +7,7 @@ import st.tipologia.ControleTipologia;
  * @author SCS214
  */
 public class TesteControleTipologia {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         ControleTipologia ct = new ControleTipologia();
         Object[][] resultados = ct.verTipologias();
         
@@ -25,5 +25,5 @@ public class TesteControleTipologia {
                 System.out.println(valor);
             }
         }
-    }
+    }*/
 }

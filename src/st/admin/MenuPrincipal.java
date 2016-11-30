@@ -6,7 +6,10 @@
 package st.admin;
 
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 import st.sessao.Sessao;
+import st.tipologia.FormMantedor;
+import st.tipologia.FormTipologias;
 
 /**
  *
@@ -47,7 +50,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Menu Princiapl");
+        jLabel1.setText("Menu Principal");
 
         jButton1.setText("Logoff");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +60,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cadastrar: Tipologias e Componentes");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Ver Pedidos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -73,8 +81,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jButton5.setText("Ver Tipologias");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Criar pedido");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         lb_user.setText("jLabel2");
 
@@ -146,10 +164,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.setTitle("Principal");
-        lb_user.setText("Bem vindo: " + Sessao.getFuncionario().getNomeLogin());
+        
+        
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ssss");
         //sdf.format(new Date(System.currentTimeMillis()));
-        lb_acesso.setText("Inicio: " + sdf.format(Sessao.getFuncionario().getDataHoraAcesso()));
+        if(Sessao.getFuncionario() != null)
+        {
+           lb_user.setText("Bem vindo: " + Sessao.getFuncionario().getNomeLogin()); 
+           lb_acesso.setText("Inicio: " + sdf.format(Sessao.getFuncionario().getDataHoraAcesso()));
+        }
+        else
+        {
+            lb_user.setText(""); 
+           lb_acesso.setText("");
+        }
         
         //lb_acesso.setText("Inicio: " + Sessao.getFuncionario().getDataHoraAcesso());
     }//GEN-LAST:event_formWindowActivated
@@ -171,40 +199,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         l.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FormMantedor novo = new FormMantedor();
+        novo.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuPrincipal().setVisible(true);
-            }
-        });
-    }
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        JOptionPane.showMessageDialog(null, "Em construção...");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       FormTipologias novo = new FormTipologias();
+       novo.setVisible(true);
+       
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
