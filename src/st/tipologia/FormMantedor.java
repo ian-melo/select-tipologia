@@ -91,6 +91,7 @@ public class FormMantedor extends javax.swing.JFrame {
         itemComponente = new javax.swing.JMenu();
         itemTipologia = new javax.swing.JMenu();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Materiais");
 
         jLabel1.setText("Nome descritivo:");
@@ -510,7 +511,7 @@ public class FormMantedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTAdicionarActionPerformed
 
     private void btnTExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTExcluirActionPerformed
-        excluirComponente();
+        excluirTipologia();
         preencherCComponente();
         preencherTComponente();
         preencherTTipologia();

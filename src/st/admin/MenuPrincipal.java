@@ -165,12 +165,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.setTitle("Principal");
         
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ssss");
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
         //sdf.format(new Date(System.currentTimeMillis()));
         if(Sessao.getFuncionario() != null)
         {
-           lb_user.setText("Bem vindo: " + Sessao.getFuncionario().getNomeLogin()); 
+           lb_user.setText("Bem vindo, " + Sessao.getFuncionario().getNomeLogin()); 
            lb_acesso.setText("Inicio: " + sdf.format(Sessao.getFuncionario().getDataHoraAcesso()));
         }
         else

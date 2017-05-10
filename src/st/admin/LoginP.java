@@ -39,6 +39,7 @@ public class LoginP extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);

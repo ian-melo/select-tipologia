@@ -40,6 +40,7 @@ public class FormTipologias extends javax.swing.JFrame {
         tblTipologia = new javax.swing.JTable();
         btnDetalhes = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ver Tipologias");
 
         jLabel1.setText("Lista de tipologias existentes:");
